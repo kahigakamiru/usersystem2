@@ -14,8 +14,9 @@ function Signup() {
     e.preventDefault();
 
     await axios
-        .post("http://localhost:9000/registration", {
-          username: data.username,
+        .post("http://localhost:4000/api/users/signup", {
+          firstname: data.firstname,
+          lastname: data.lastname,
           email: data.email,
           password: data.password,
           confirmpassword: data.confirmpassword,
@@ -36,12 +37,12 @@ function Signup() {
 
                 <div className="form-group">
                 <label>First name</label>
-                <input  className="form-control" id="username" onChange={(e) => handle(e)} value={data.username} type="text" placeholder="enter Firstname" />
+                <input  className="form-control" id="lastname" onChange={(e) => handle(e)} value={data.firstname} type="text" placeholder="enter Firstname" />
                 </div>
 
                 <div className="form-group">
                     <label>Last name</label>
-                    <input  className="form-control" id="username" onChange={(e) => handle(e)} value={data.username} type="text" placeholder="enter Lastname" />
+                    <input  className="form-control" id="lastname" onChange={(e) => handle(e)} value={data.lastname} type="text" placeholder="enter Lastname" />
 
                 </div>
 
@@ -54,6 +55,10 @@ function Signup() {
                 <div className="form-group">
                     <label>Password</label>
                     <input  type="password" className="form-control" id="password" onChange={(e) => handle(e)}  value={data.password}     placeholder="enter password" />
+                </div>
+                  <div className="form-group">
+                    <label>Password</label>
+                    <input  type="password" className="form-control" id="confirmpassword" onChange={(e) => handle(e)}  value={data.confirmpassword}     placeholder="enter password" />
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
